@@ -57,7 +57,7 @@ class Question {
     this.button2.mousePressed(()=>{
       contestant.updateCount(0)
       quiz.update(0)
-      var ref = database.ref("contestants")
+      var ref = database.ref("projeto37/contestants")
       ref.remove()
     })
   }

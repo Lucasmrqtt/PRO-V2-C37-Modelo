@@ -2,7 +2,7 @@ class Quiz {
   constructor(){}
 
   getState(){
-    var gameStateRef  = database.ref('gameState');
+    var gameStateRef  = database.ref('projeto37/gameState');
     gameStateRef.on("value",function(data){
        gameState = data.val();
     })
@@ -10,7 +10,7 @@ class Quiz {
   }
 
   update(state){
-    database.ref('/').update({
+    database.ref('projeto37').update({
       gameState: state
     });
   }
@@ -18,7 +18,7 @@ class Quiz {
   async start(){
     if(gameState === 0){
       contestant = new Contestant();
-      var contestantCountRef = await database.ref('contestantCount').once("value");
+      var contestantCountRef = await database.ref('projeto37/contestantsCount').once("value");
       if(contestantCountRef.exists()){
         contestantCount = contestantCountRef.val();
         contestant.getCount();
@@ -56,12 +56,12 @@ class Quiz {
         //   fill("red");
         // }
 
-        // if (correctAns === allContestants[plr].answer){
-        //   fill("Green")
-        // }
-        // else{
-        //   fill("red");
-        // }
+          if (correctAns === allContestants[plr].answer){
+            fill("Green")
+          }
+          else{
+            fill("red");
+          }
 
         // if (correctAns === allContestants[plr].answer){
         //   fill("red")

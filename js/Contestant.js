@@ -6,20 +6,20 @@ class Contestant {
   }
 
   getCount(){
-    var contestantCountRef = database.ref('contestantCount');
+    var contestantCountRef = database.ref('projeto37/contestantsCount');
     contestantCountRef.on("value",(data)=>{
       contestantCount = data.val();
     })
   }
 
   updateCount(count){
-    database.ref('/').update({
+    database.ref('projeto37').update({
       contestantCount: count
     });
   }
 
   update(){
-    var contestantIndex = "contestants/contestant" + this.index;
+    var contestantIndex = "projeto37/contestants/contestant" + this.index;
     database.ref(contestantIndex).set({
       name:this.name,
       answer:this.answer
@@ -27,7 +27,7 @@ class Contestant {
   }
 
   static getPlayerInfo(){
-    var contestantInfoRef = database.ref('contestants');
+    var contestantInfoRef = database.ref('projeto37/contestants');
     contestantInfoRef.on("value",(data)=>{
       allContestants = data.val();
     })
